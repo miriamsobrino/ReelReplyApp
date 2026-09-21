@@ -133,7 +133,13 @@ async function enviarMensajePrivado(commentId, mensaje) {
 // Webhook - recibir eventos
 app.post("/webhook", async (req, res) => {
 
-  console.log("🔥 WEBHOOK RECIBIDO");
+ console.log("🔥 WEBHOOK RECIBIDO");
+
+console.log(
+  "📦 BODY COMPLETO:",
+  JSON.stringify(req.body, null, 2)
+);
+
 
   const change = req.body.entry?.[0]?.changes?.[0];
 if (!change) {
