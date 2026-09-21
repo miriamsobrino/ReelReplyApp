@@ -136,7 +136,10 @@ app.post("/webhook", async (req, res) => {
   console.log("🔥 WEBHOOK RECIBIDO");
 
   const change = req.body.entry?.[0]?.changes?.[0];
-
+if (!change) {
+    console.log("⚠️ No se encontró entry/changes en el body");
+    return res.sendStatus(200);
+  }
   if (change?.field === "comments") {
 
     const comentario = change.value.text || "";
