@@ -51,6 +51,26 @@ app.get("/webhook", (req, res) => {
 
   }
 });
+app.get("/get-long-lived-token", async (req, res) => {
+  try {
+    const response = await fetch(
+      `https://graph.facebook.com/v26.0/oauth/access_token?` +
+      `client_id=${process.env.APP_ID}` +
+      `&client_secret=${process.env.APP_SECRET}` +
+      `&grant_type=fb_exchange_token` +
+      `&fb_exchange_token=${process.env.FACEBOOK_ACCESS_TOKEN}`
+    );
+
+    const data = await response.json();
+
+    console.log(data);
+
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error obteniendo el token" });
+  }
+});
 
 
 // Elegir una respuesta aleatoria
