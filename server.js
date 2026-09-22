@@ -133,6 +133,24 @@ async function responderComentario(commentId, mensaje) {
 
 }
 
+// Dar like comentario
+async function darLikeComentario(commentId) {
+  try {
+    await axios.post(
+      `https://graph.facebook.com/v26.0/${commentId}/likes`,
+      {
+        access_token: process.env.FACEBOOK_ACCESS_TOKEN
+      }
+    );
+
+    console.log("❤️ Like dado al comentario:", commentId);
+  } catch (error) {
+    console.error(
+      "Error dando like:",
+      error.response?.data || error.message
+    );
+  }
+}
 
 // Enviar mensaje privado al usuario que comentó
 async function enviarMensajePrivado(commentId, mensaje) {
@@ -257,7 +275,7 @@ if (!change) {
           mensajePrivado
         );
 
-
+await darLikeComentario(commentId); 
         // Evitar que una misma publicación
         // active varias automatizaciones
         break;
