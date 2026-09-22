@@ -139,7 +139,7 @@ async function darLikeComentario(commentId) {
     await axios.post(
       `https://graph.facebook.com/v26.0/${commentId}/likes`,
       {
-        access_token: process.env.FACEBOOK_ACCESS_TOKEN
+        access_token: process.env.INSTAGRAM_ACCESS_TOKEN
       }
     );
 
