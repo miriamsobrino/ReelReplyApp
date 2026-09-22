@@ -51,6 +51,15 @@ app.get("/webhook", (req, res) => {
 
   }
 });
+app.get("/test-config", (req, res) => {
+  res.json({
+    appId: process.env.APP_ID,
+    secretLoaded: !!process.env.APP_SECRET,
+    secretLength: process.env.APP_SECRET?.length,
+    tokenLoaded: !!process.env.FACEBOOK_ACCESS_TOKEN
+  });
+});
+
 app.get("/get-long-lived-token", async (req, res) => {
   try {
     const response = await fetch(
