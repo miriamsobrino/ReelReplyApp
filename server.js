@@ -51,13 +51,21 @@ app.get("/webhook", (req, res) => {
 
   }
 });
-app.get("/test-config", (req, res) => {
-  res.json({
-    appId: process.env.APP_ID,
-    secretLoaded: !!process.env.APP_SECRET,
-    secretLength: process.env.APP_SECRET?.length,
-    tokenLoaded: !!process.env.FACEBOOK_ACCESS_TOKEN
-  });
+app.get("/debug-token", async (req, res) => {
+  try {
+    const response = await fetch(
+      `https://graph.facebook.com/v26.0/debug_token` +
+      `?input_token=${process.env.FACEBOOK_ACCESS_TOKEN}` +
+      `&access_token=${process.env.APP_ID}|${process.env.APP_SECRET}`
+    );
+
+    const data = await response.json();
+
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
 });
 
 app.get("/get-long-lived-token", async (req, res) => {
