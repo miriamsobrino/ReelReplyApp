@@ -51,22 +51,7 @@ app.get("/webhook", (req, res) => {
 
   }
 });
-app.get("/debug-token", async (req, res) => {
-  try {
-    const response = await fetch(
-      `https://graph.facebook.com/v26.0/debug_token` +
-      `?input_token=${process.env.FACEBOOK_ACCESS_TOKEN}` +
-      `&access_token=${process.env.APP_ID}|${process.env.APP_SECRET}`
-    );
 
-    const data = await response.json();
-
-    res.json(data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: error.message });
-  }
-});
 
 app.get("/get-long-lived-token", async (req, res) => {
   try {
@@ -88,7 +73,26 @@ app.get("/get-long-lived-token", async (req, res) => {
     res.status(500).json({ error: "Error obteniendo el token" });
   }
 });
+app.get("/get-page-token", async (req, res) => {
+  try {
+    const response = await fetch(
+      `https://graph.facebook.com/v26.0/me/accounts` +
+      `?fields=id,name,access_token` +
+      `&access_token=${process.env.LONG_LIVED_USER_TOKEN}`
+    );
 
+    const data = await response.json();
+
+    console.log(data);
+
+    res.json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: "Error obteniendo el Page Access Token"
+    });
+  }
+});
 
 // Elegir una respuesta aleatoria
 function elegirRespuesta(respuestas) {
