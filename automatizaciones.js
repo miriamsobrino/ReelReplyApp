@@ -30,7 +30,19 @@ const automatizaciones = {
     ],
 
     mensajesPrivados: [
-      "¡Hola! 👋 Aquí aquí puedes conseguir el proceso completo del personaje! https://soger.gumroad.com/l/frog"
+      "¡Hola! 👋 Aquí puedes conseguir el proceso completo del personaje! https://soger.gumroad.com/l/frog"
+
+    ]
+  },
+
+   hand: {
+    respuestasComentario: [
+      "¡Hecho! Revisa tus mensajes 😊",
+      "¡Listo! Te lo envié por mensaje 🙌 "
+    ],
+
+    mensajesPrivados: [
+      " ¡Hola! 👋 Gracias por tu interés en Hand Generator 🙌 Puedes conseguir el add-on aquí: https://soger.gumroad.com/l/handgenerator"
 
     ]
   }
