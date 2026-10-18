@@ -45,6 +45,18 @@ const automatizaciones = {
       " ¡Hola! 👋 Gracias por tu interés en Hand Generator 🙌 Puedes conseguir el add-on aquí: https://soger.gumroad.com/l/handgenerator"
 
     ]
+  },
+  calabaza: {
+    respuestasComentario: [
+      "👻 ¡Buuu! Te he dejado algo en tus mensajes 🎃",
+      "¡Que no te dé miedo el 3D! Revisa tus mensajes 🎃 ",
+      "¡Truco o tutorial! 🎃 Te espera un mensaje terrorífico 👻"
+    ],
+
+    mensajesPrivados: [
+      " ¡Hola! 🎃 Aquí tienes el link al vídeo con el proceso del modelado y rigging de una calabaza en tiempo real: https://youtu.be/gQcVrYArQAQ"
+
+    ]
   }
 };
 
