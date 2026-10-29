@@ -57,7 +57,18 @@ const automatizaciones = {
       " ¡Hola! 🎃 Aquí tienes el link al vídeo con el proceso del modelado y rigging de una calabaza en tiempo real: https://youtu.be/gQcVrYArQAQ"
 
     ]
-  }
+  },
+     humo: {
+    respuestasComentario: [
+      "¡Hecho! Revisa tus mensajes 😊",
+      "¡Listo! Te lo envié por mensaje 🙌 "
+    ],
+
+    mensajesPrivados: [
+      " ¡Hola! 👋 Puedes descargar el archivo de blender del humo estilo cartoon aquí: https://drive.google.com/file/d/13ihy4Zj8v0Fsa75w8T9EgrlQi9nRrJk7/view?usp=drive_link"
+
+    ]
+  },
 };
 
 module.exports = automatizaciones;
